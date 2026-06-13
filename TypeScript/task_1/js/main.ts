@@ -21,3 +21,27 @@ const printTeacher: printTeacherFunction = (
 ): string => `${firstName.charAt(0)}. ${lastName}`;
 
 console.log(printTeacher('John', 'Doe'));
+
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+interface StudentConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
+}
+
+class StudentClass implements StudentClassInterface {
+  constructor(
+    private firstName: string,
+    private lastName: string
+  ) {}
+
+  workOnHomework(): string {
+    return 'Currently working';
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
